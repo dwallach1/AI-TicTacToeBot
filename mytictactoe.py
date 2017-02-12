@@ -16,8 +16,9 @@ class mmNode:
 
 #recursively makes the tree of possible outcomes
 def makeTree(node, rootSymbol):
-    if evalBoard(leafNode=node, mySymbol=node.symbol, rootSymbol=rootSymbol) is not -1:
-        node.score = evalBoard(leafNode=node, mySymbol=node.symbol, rootSymbol=rootSymbol)
+    score = evalBoard(leafNode=node, mySymbol=node.symbol, rootSymbol=rootSymbol)
+    if score is not -1:
+        node.score = score
         node.isLeaf = True
         node.isMaxNode = True
         return
